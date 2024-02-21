@@ -14,6 +14,6 @@ use App\Http\Controllers\PatientController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::get('/partients{id}', [PatientController::class, 'show']);
+Route::get('/partients/{id}', [PatientController::class, 'show']);
 Route::get('/patients', [PatientController::class, 'index']);
 Route::post('/patients', [PatientController::class, 'store']);
