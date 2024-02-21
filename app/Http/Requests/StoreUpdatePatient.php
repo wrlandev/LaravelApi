@@ -21,7 +21,8 @@ class StoreUpdatePatient extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
+
             'full_name' => 
             [
                 'required',
@@ -53,5 +54,29 @@ class StoreUpdatePatient extends FormRequest
                 'required'
             ]
         ];
+
+        if($this->method() === 'PATCH') {
+
+            $rules = 
+            [
+                'full_name' => 
+                [
+                'required',
+                'string',
+                'min:3',
+                'max:33'
+                ],
+
+            'full_name_mother' => 
+                [
+                'required',
+                'string',
+                'min:3',
+                'max:33'
+                ],
+            ];
+        }
+
+        return $rules;
     }
 }
