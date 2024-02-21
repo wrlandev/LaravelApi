@@ -13,7 +13,9 @@ class PatientController extends Controller
      */
     public function index()
     {
-        //
+        $patients = Patient::all();
+
+        return PatientResource::collection($patients);
     }
     
     /**
