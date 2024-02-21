@@ -14,6 +14,7 @@ use App\Http\Controllers\PatientController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::delete('/patients/{id}', [PatientController::class, 'destroy']);
 Route::patch('/patients/{id}', [PatientController::class, 'update']);
 Route::get('/patients/{id}', [PatientController::class, 'show']);
 Route::get('/patients', [PatientController::class, 'index']);
