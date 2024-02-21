@@ -23,7 +23,11 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        
+        $patient = Patient::create($data);
+
+        return new PatientResource($patient);
     }
 
     /**
