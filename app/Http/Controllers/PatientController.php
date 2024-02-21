@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\PatientResource;
 use App\Http\Requests\StoreUpdatePatient;
 use App\Models\Patient;
+use Illuminate\Http\Response;
 
 class PatientController extends Controller
 {
@@ -59,6 +60,8 @@ class PatientController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $patient = Patient::findOrFail($id)->delete();
+
+        return response()->json([], Response::HTTP_NO_CONTENT);
     }
 }
