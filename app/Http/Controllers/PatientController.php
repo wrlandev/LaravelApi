@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\PatientResource;
+use App\Http\Requests\StoreUpdatePatient;
 use App\Models\Patient;
 
 class PatientController extends Controller
@@ -21,9 +22,9 @@ class PatientController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUpdatePatient $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
         
         $patient = Patient::create($data);
 
