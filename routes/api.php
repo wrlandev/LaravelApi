@@ -15,4 +15,4 @@ use App\Http\Controllers\PatientController;
 |
 */
 
-Route::ApiResource('/patients', [PatientController::class]);
+Route::get('/patients', [PatientController::class, 'index']);
