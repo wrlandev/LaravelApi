@@ -36,7 +36,9 @@ class PatientController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $patient = Patient::findOrFail($id);
+
+        return new PatientResource($patient);
     }
 
     /**
