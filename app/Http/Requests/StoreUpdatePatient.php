@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use \App\Rules\FullName;
 
 class StoreUpdatePatient extends FormRequest
 {
@@ -26,7 +27,7 @@ class StoreUpdatePatient extends FormRequest
             'full_name' => 
             [
                 'required',
-                'string',
+                 new FullName,
                 'min:3',
                 'max:33'
             ],
@@ -34,7 +35,7 @@ class StoreUpdatePatient extends FormRequest
             'full_name_mother' => 
             [
                 'required',
-                'string',
+                 new FullName,
                 'min:3',
                 'max:33'
             ],
@@ -46,12 +47,17 @@ class StoreUpdatePatient extends FormRequest
 
             'document_cpf' =>
             [
-                'required'
+                'required',
+                'unique:patients',
+                'cpf',
+                'formato_cpf'
             ],
 
             'document_cns' => 
             [
-                'required'
+                'required',
+                'unique:patients',
+                'cns'
             ]
         ];
 
