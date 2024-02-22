@@ -21,7 +21,7 @@ class PatientFactory extends Factory
             'full_name_mother' => $this->faker->name,
             'date_of_birth' => $this->faker->date,
             'document_cpf' => $this->faker->numerify('###.###.###-##'),
-            'document_cns' => $this->faker->numerify('### #### #### ####')
+            'document_cns' => $this->faker->numerify('###############')
         ];
     }
 }
