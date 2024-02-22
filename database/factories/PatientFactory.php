@@ -18,7 +18,7 @@ class PatientFactory extends Factory
     {
         return [
             'full_name' => $this->faker->name,
-            'full_name_mother' => $this->faker->name,
+            'full_name_mother' => $this->faker->name($gender = 'female'),
             'date_of_birth' => $this->faker->date,
             'document_cpf' => $this->faker->numerify('###.###.###-##'),
             'document_cns' => $this->faker->numerify('###############'),
