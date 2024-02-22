@@ -68,7 +68,7 @@ class StoreUpdatePatient extends FormRequest
                 'full_name' => 
                 [
                 'required',
-                'string',
+                 new FullName,
                 'min:3',
                 'max:33'
                 ],
@@ -76,7 +76,7 @@ class StoreUpdatePatient extends FormRequest
             'full_name_mother' => 
                 [
                 'required',
-                'string',
+                 new FullName,
                 'min:3',
                 'max:33'
                 ],
