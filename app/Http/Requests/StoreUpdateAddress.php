@@ -11,7 +11,7 @@ class StoreUpdateAddress extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,6 +26,7 @@ class StoreUpdateAddress extends FormRequest
             'zipcode' => 
             [
                 'required',
+                'unique:addresses',
                 'formato_cep'
             ],
 
