@@ -47,11 +47,11 @@ class AddressController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreUpdateAddress $request, string $id)
     {
         $address = Address::findOrFail($id);
 
-        $data = $request->all();
+        $data = $request->validated();
         $address->update($data);
 
         return response('SUCCESS', 200);

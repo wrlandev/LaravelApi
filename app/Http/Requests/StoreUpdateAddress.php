@@ -63,8 +63,55 @@ class StoreUpdateAddress extends FormRequest
                 'required',
                 'uf'
             ],
-
         ];
+
+        if($this->method() === 'PATCH') {
+
+            $rules = 
+            [
+                'zipcode' => 
+                [
+                    'required',
+                    'unique:addresses',
+                    'formato_cep'
+                ],
+
+                'street' => 
+                [
+                    'required',
+                    'min:3',
+                    'max:33'
+                ],
+
+                'complement' => 
+                [
+                    'required',
+                    'min:3',
+                    'max:66'
+                ],
+
+                'neighborhood' => 
+                [
+                   'required',
+                   'min:3',
+                   'max:33'
+                 ],
+
+                'city' => 
+                [
+                    'required',
+                    'min:3',
+                    'max:33'
+                ],
+
+                'state' => 
+                [
+                    'required',
+                    'uf'
+                ]
+
+            ];
+        }
 
         return $rules;
     }
