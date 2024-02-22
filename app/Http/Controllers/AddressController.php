@@ -47,11 +47,12 @@ class AddressController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $patientId)
+    public function update(Request $request, string $id)
     {
-        $patient = $this->patient->find($patientId);
+        $address = Address::findOrFail($id);
 
-        $patient->address()->update($request->validated());
+        $data = $request->all();
+        $address->update($data);
 
         return response('SUCCESS', 200);
     }
