@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
+            $table->string('full_name',);
             $table->string('full_name_mother');
             $table->date('date_of_birth');
             $table->string('document_cpf');

@@ -19,7 +19,7 @@ class AddressResource extends JsonResource
             'patient_id' => $this->patient_id,
             'zipcode' => $this->zipcode,
             'street' => $this->street,
-            'complement' => $this->completement,
+            'complement' => $this->complement,
             'neighborhood' => $this->neighborhood,
             'city' => $this->city,
             'state' => $this->state

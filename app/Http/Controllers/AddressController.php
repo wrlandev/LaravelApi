@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\AddressResource;
+use App\Http\Requests\StoreUpdateAddress;
+use App\Models\Address;
+use App\Models\Patient;
+use Illuminate\Http\Response;
 
 class AddressController extends Controller
 {
@@ -11,23 +16,22 @@ class AddressController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $address = Address::all();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return AddressResource::collection($address);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUpdateAddress $request, $patientId)
     {
-        //
+      $patient = Patient::find($patientId);
+
+      $patient->address()->create($request->validated());
+
+      return response('SUCCESS', 200);
+
     }
 
     /**
@@ -35,23 +39,21 @@ class AddressController extends Controller
      */
     public function show(string $id)
     {
-        //
-    }
+        $address = Address::findOrFail($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        return new AddressResource($address);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $patientId)
     {
-        //
+        $patient = $this->patient->find($patientId);
+
+        $patient->address()->update($request->validated());
+
+        return response('SUCCESS', 200);
     }
 
     /**
@@ -59,6 +61,8 @@ class AddressController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $address = Address::findOrFail($id)->delete();
+
+        return response()->json([], Response::HTTP_NO_CONTENT);
     }
 }
