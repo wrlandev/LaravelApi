@@ -22,7 +22,6 @@ class PatientFactory extends Factory
             'date_of_birth' => $this->faker->date,
             'document_cpf' => $this->faker->numerify('###.###.###-##'),
             'document_cns' => $this->faker->numerify('###############'),
-            'addresses_id' => $this->faker->randomDigit,
         ];
     }
 }

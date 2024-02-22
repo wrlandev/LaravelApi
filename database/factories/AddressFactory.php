@@ -17,7 +17,7 @@ class AddressFactory extends Factory
     public function definition(): array
     {
         return [
-            'patients_id' => $this->faker->randomDigit,
+            'patient_id' => $this->faker->randomDigit,
             'zipcode' => $this->faker->numerify('#####-###'),
             'street' => $this->faker->streetName,
             'complement' => $this->faker->streetAddress,
