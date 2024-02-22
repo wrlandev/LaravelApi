@@ -16,5 +16,10 @@ class Patient extends Model
         'document_cns'
     ];
 
+    public function address() 
+    {
+        return $this->hashOne(Address::class);
+    }
+
     use HasFactory;
 }
