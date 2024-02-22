@@ -18,7 +18,7 @@ class Patient extends Model
 
     public function address() 
     {
-        return $this->hashOne(Address::class);
+        return $this->hasOne(Address::class);
     }
 
     use HasFactory;
