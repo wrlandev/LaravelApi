@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('date_of_birth');
             $table->string('document_cpf');
             $table->string('document_cns');
+            $table->foreignId('addresses_id');
             $table->timestamps();
         });
     }
