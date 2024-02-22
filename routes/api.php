@@ -25,4 +25,4 @@ Route::delete('/addresses/{id}', [AddressController::class, 'destroy']);
 Route::patch('/addresses/{id}', [AddressController::class, 'update']);
 Route::get('/addresses/{id}', [AddressController::class, 'show']);
 Route::get('/addresses', [AddressController::class, 'index']);
-Route::post('/addresses', [AddressController::class, 'store']);
+Route::post('/addresses/{id}', [AddressController::class, 'store']);
