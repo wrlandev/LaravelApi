@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\AddressController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,9 @@ Route::patch('/patients/{id}', [PatientController::class, 'update']);
 Route::get('/patients/{id}', [PatientController::class, 'show']);
 Route::get('/patients', [PatientController::class, 'index']);
 Route::post('/patients', [PatientController::class, 'store']);
+
+Route::delete('/addresses/{id}', [AddressController::class, 'destroy']);
+Route::patch('/addresses/{id}', [AddressController::class, 'update']);
+Route::get('/addresses/{id}', [AddressController::class, 'show']);
+Route::get('/addresses', [AddressController::class, 'index']);
+Route::post('/addresses', [AddressController::class, 'store']);
